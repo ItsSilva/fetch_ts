@@ -38,7 +38,7 @@ class AppContainer extends HTMLElement {
             <h1>Harry Potter Characters</h1> 
             </section>`;
         
-        // Make sure you render the cards correctly
+        // Make sure you render the cards correctly0
         this.cards.forEach((card) => {
             this.shadowRoot?.appendChild(card);
         });
