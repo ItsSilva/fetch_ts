@@ -1,10 +1,12 @@
 // import * as components from './components/index';
 import Card, { Attribute } from './components/Card/Card';
 import { getHarryData } from './services/fetchHarryAPI'
+import { getPokeData } from './services/fetchPokeAPI'
 
 class AppContainer extends HTMLElement {
     cards: Card[] = [];
     dataApi: any[] = [];
+    pokeData: any = {};
 
     constructor() {
         super();
@@ -14,8 +16,10 @@ class AppContainer extends HTMLElement {
     async connectedCallback() {
         // We obtain the data from the Harry Potter API and save it in the dataApi variable
         this.dataApi = await getHarryData();
+        this.pokeData = await getPokeData();
         // Create the cards with the dataApi
         this.createCardsHarry();  // Make sure the function to create the cards is called
+        this.createCardsPoke();
         this.render();
     }
 
@@ -29,6 +33,10 @@ class AppContainer extends HTMLElement {
             card.setAttribute(Attribute.yearofbirth, e.yearOfBirth); // This must match the correct name
             this.cards.push(card);
         });
+    }
+
+    createCardsPoke(){
+        console.log(this.pokeData);
     }
 
     render() {
