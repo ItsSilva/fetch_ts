@@ -1,6 +1,6 @@
 // import * as components from './components/index';
 import Card, { Attribute } from './components/Card/Card';
-import { getHarryData } from './services/fetchPokeAPI'
+import { getHarryData } from './services/fetchHarryAPI'
 
 class AppContainer extends HTMLElement {
     cards: Card[] = [];
